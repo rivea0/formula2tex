@@ -40,8 +40,8 @@ function getMediaPreference(): UserTheme {
 <template>
   <header>
     <div class="title" data-test="title">
-      <h1>Reference Formulas</h1>
-      <h4>from <a href="https://openlibrary.org/books/OL31938751M/Discrete_mathematics_with_applications">Discrete Mathematics with Applications</a> by Susanna S. Epp</h4>
+      <h1><a href="/">Formula2TeX</a></h1>
+      <h2><i>Copy the TeX source of various formulas.</i></h2>
     </div>
     <div class="theme">
       <button @click="toggleTheme" class="theme-btn">
@@ -59,23 +59,22 @@ function getMediaPreference(): UserTheme {
   </main>
   <footer>
     <div>
+      <div class="footer-icons">
+        <a href="https://github.com/rivea0">
+          <GitHubIcon :fill-color="userTheme === 'light' ? '#10131a' : '#eff1f5'" :width="28" :height="28" />
+        </a>
+        <a href="https://edaeren.com">
+          <SiteLinkIcon :fill-color="userTheme === 'light' ? '#10131a' : '#eff1f5'" :width="28" :height="28" />
+        </a>
+      </div>
       <p class="footer-primary" data-test="footer-primary">
-        Made with &#128156; by Eda Eren. &copy; {{ new Date().getFullYear() }}
+        Made with &#128156; & &#9749; by Eda Eren. &copy; {{ new Date().getFullYear() }}
       </p>
       <p>
         Rubik (fav)icon from
         <a href="https://www.svgrepo.com/collection/eighties-3/">the Eighties 3 collection</a> from
-        SVG Repo.
+        SVG Repo | Icons from <a href="https://phosphoricons.com">Phosphor Icons</a>.
       </p>
-      <p>Icons from <a href="https://phosphoricons.com">Phosphor Icons</a>.</p>
-      <div class="footer-icons">
-        <a href="https://github.com/rivea0">
-          <GitHubIcon :fill-color="userTheme === 'light' ? '#10131a' : '#eff1f5'" />
-        </a>
-        <a href="https://rivea0.github.io">
-          <SiteLinkIcon :fill-color="userTheme === 'light' ? '#10131a' : '#eff1f5'" />
-        </a>
-      </div>
     </div>
   </footer>
 </template>
@@ -85,32 +84,31 @@ function getMediaPreference(): UserTheme {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--accent-color);
+  border-bottom: 2px solid var(--text-primary-color);
 }
 
-.title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.5;
-  flex: 1;
-  margin-left: 1rem;
+h1 > a {
+  color: var(--text-primary-color);
+  text-decoration: none;
+  font-size: 3.6rem;
 }
 
-h1 {
-  margin-bottom: 0;
+h1 > a:hover {
+  border-bottom: 6px solid var(--text-primary-color);
 }
 
-h4 {
-  font-size: smaller;
-  margin-top: 0;
+h2 {
+  color: var(--text-secondary-color);
 }
 
 .theme {
   align-self: center;
-  border: 1px solid var(--background-color-secondary);
-  border-radius: 4px;
+  border: 2px solid var(--text-primary-color);
+  border-radius: 12px;
+  padding: 4px;
 }
 
 .theme-btn {
@@ -125,14 +123,16 @@ h4 {
   justify-content: center;
 }
 
-.footer-primary {
+footer {
   text-align: center;
+  padding: 1rem;
 }
 
 @media (orientation: portrait) {
   header {
     flex-direction: column;
     gap: 18px;
+    padding: 1rem;
   }
 
   .theme {

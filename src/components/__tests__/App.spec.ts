@@ -29,7 +29,7 @@ describe('App', () => {
     const wrapper = mount(App)
     const titleDiv = wrapper.get('[data-test="title"]')
 
-    expect(titleDiv.text()).toContain('Reference Formulas')
+    expect(titleDiv.text()).toContain('Formula2TeX')
   })
 
   it('shows year in footer', () => {

@@ -54,7 +54,7 @@ function copyFormula() {
 button {
   background-color: rgba(112, 184, 219, 0.25);
   padding: 8px 12px;
-  border: white;
+  border: 2px solid var(--text-primary-color);
   border-radius: 8px;
   color: var(--text-primary-color);
   width: max-content;

@@ -37,7 +37,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 0 24px;
 }
 
 button {
@@ -59,4 +58,11 @@ footer {
   text-align: left;
   padding-top: 2rem;
   color: var(--text-secondary-color);
+}
+
+main {
+  background-size: 60px 60px;
+  background-image:
+    linear-gradient(to right, var(--background-color-secondary) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--background-color-secondary) 1px, transparent 1px);
 }

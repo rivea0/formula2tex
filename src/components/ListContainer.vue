@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { formulas, convertToKey } from '../lib/utils'
 import type { FormulaItem } from '../lib/types'
-// import KatexElement from './KatexElement.vue'
 import FormulaCard from './FormulaCard.vue'
 
 let allValues = Object.values(formulas).flat()
@@ -64,7 +63,8 @@ const listOfSubjects = ref([
 .subject-btn {
   background-color: var(--background-color-primary);
   padding: 16px;
-  border-color: rgba(147, 112, 219, 0.5);
+  border: 2px solid var(--text-primary-color);
+  box-shadow: 2px 2px 0 0 var(--text-primary-color);
   border-radius: 4px;
   color: var(--text-primary-color);
 }
