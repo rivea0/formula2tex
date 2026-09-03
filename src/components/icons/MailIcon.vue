@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  fillColor: string
-}>()
+  fillColor: string;
+}>();
 </script>
 
 <template>

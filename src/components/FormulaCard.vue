@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import KatexElement from './KatexElement.vue'
-import type { FormulaItem } from '../lib/types'
+import KatexElement from './KatexElement.vue';
+import type { FormulaItem } from '../lib/types';
 
 defineProps<{
-  filteredValues: FormulaItem[]
-}>()
+  filteredValues: FormulaItem[];
+}>();
 </script>
 
 <template>

@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import type { SimpleKatex, WindowWithKatex } from '../lib/types'
-import { katexReplaceWithTex } from '../lib/katex2tex'
-import { useToast, POSITION } from 'vue-toastification'
-import type { PluginOptions } from 'vue-toastification'
+import { ref, onMounted } from 'vue';
+import type { SimpleKatex, WindowWithKatex } from '../lib/types';
+import { katexReplaceWithTex } from '../lib/katex2tex';
+import { useToast, POSITION } from 'vue-toastification';
+import type { PluginOptions } from 'vue-toastification';
 
-let katex = ref<SimpleKatex | null>(null)
-let p = ref<Element | null>(null)
+let katex = ref<SimpleKatex | null>(null);
+let p = ref<Element | null>(null);
 
 onMounted(() => {
-  katex.value = (window as WindowWithKatex).katex
-})
+  katex.value = (window as WindowWithKatex).katex;
+});
 
 defineProps<{
-  item: { title: string; formula: string }
-}>()
+  item: { title: string; formula: string };
+}>();
 
 function copyFormula() {
-  const tex = katexReplaceWithTex(p.value)?.textContent
-  const toast = useToast()
+  const tex = katexReplaceWithTex(p.value)?.textContent;
+  const toast = useToast();
 
   const options: PluginOptions = {
     timeout: 1500,
@@ -29,13 +29,13 @@ function copyFormula() {
     bodyClassName: 'toast-container',
     draggable: false,
     pauseOnHover: false
-  }
+  };
 
   if (tex) {
-    navigator.clipboard.writeText(tex)
-    toast.success('Copied TeX source!', options)
+    navigator.clipboard.writeText(tex);
+    toast.success('Copied TeX source!', options);
   } else {
-    console.error('Cannot read TeX source!')
+    console.error('Cannot read TeX source!');
   }
 }
 </script>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-  fillColor: string,
-  width: number,
-  height: number
-}>()
+  fillColor: string;
+  width: number;
+  height: number;
+}>();
 </script>
 
 <template>

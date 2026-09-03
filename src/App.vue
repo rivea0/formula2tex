@@ -1,39 +1,39 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import ListContainer from './components/ListContainer.vue'
-import LightThemeIcon from './components/icons/LightThemeIcon.vue'
-import DarkThemeIcon from './components/icons/DarkThemeIcon.vue'
-import GitHubIcon from './components/icons/GitHubIcon.vue'
-import SiteLinkIcon from './components/icons/SiteLinkIcon.vue'
+import { ref, onMounted } from 'vue';
+import ListContainer from './components/ListContainer.vue';
+import LightThemeIcon from './components/icons/LightThemeIcon.vue';
+import DarkThemeIcon from './components/icons/DarkThemeIcon.vue';
+import GitHubIcon from './components/icons/GitHubIcon.vue';
+import SiteLinkIcon from './components/icons/SiteLinkIcon.vue';
 
-type UserTheme = 'light' | 'dark'
+type UserTheme = 'light' | 'dark';
 
-const userTheme = ref<UserTheme>(getTheme())
+const userTheme = ref<UserTheme>(getTheme());
 
-onMounted(() => setTheme(userTheme.value || getMediaPreference()))
+onMounted(() => setTheme(userTheme.value || getMediaPreference()));
 
 function setTheme(theme: UserTheme) {
-  localStorage.setItem('user-theme', theme)
-  userTheme.value = theme
-  document.documentElement.className = theme
+  localStorage.setItem('user-theme', theme);
+  userTheme.value = theme;
+  document.documentElement.className = theme;
 }
 
 function getTheme(): UserTheme {
-  return localStorage.getItem('user-theme') as UserTheme
+  return localStorage.getItem('user-theme') as UserTheme;
 }
 
 function toggleTheme() {
-  const activeTheme = localStorage.getItem('user-theme')
+  const activeTheme = localStorage.getItem('user-theme');
   if (activeTheme === 'light') {
-    setTheme('dark')
+    setTheme('dark');
   } else {
-    setTheme('light')
+    setTheme('light');
   }
 }
 
 function getMediaPreference(): UserTheme {
-  const hasDarkPreference = window.matchMedia('(prefers-color-scheme: dark)').matches
-  return hasDarkPreference ? 'dark' : 'light'
+  const hasDarkPreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  return hasDarkPreference ? 'dark' : 'light';
 }
 </script>
 
@@ -61,10 +61,18 @@ function getMediaPreference(): UserTheme {
     <div>
       <div class="footer-icons">
         <a href="https://github.com/rivea0">
-          <GitHubIcon :fill-color="userTheme === 'light' ? '#10131a' : '#eff1f5'" :width="28" :height="28" />
+          <GitHubIcon
+            :fill-color="userTheme === 'light' ? '#10131a' : '#eff1f5'"
+            :width="28"
+            :height="28"
+          />
         </a>
         <a href="https://edaeren.com">
-          <SiteLinkIcon :fill-color="userTheme === 'light' ? '#10131a' : '#eff1f5'" :width="28" :height="28" />
+          <SiteLinkIcon
+            :fill-color="userTheme === 'light' ? '#10131a' : '#eff1f5'"
+            :width="28"
+            :height="28"
+          />
         </a>
       </div>
       <p class="footer-primary" data-test="footer-primary">

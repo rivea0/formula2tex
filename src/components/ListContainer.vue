@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { formulas, convertToKey } from '../lib/utils'
-import type { FormulaItem } from '../lib/types'
-import FormulaCard from './FormulaCard.vue'
+import { ref } from 'vue';
+import { formulas, convertToKey } from '../lib/utils';
+import type { FormulaItem } from '../lib/types';
+import FormulaCard from './FormulaCard.vue';
 
-let allValues = Object.values(formulas).flat()
-let filteredValues = ref<FormulaItem[]>(allValues)
+let allValues = Object.values(formulas).flat();
+let filteredValues = ref<FormulaItem[]>(allValues);
 
-const activeButton = ref('all')
+const activeButton = ref('all');
 
 function filterList(filterBy: string, wholeList: { [k: string]: FormulaItem[] }) {
   if (filterBy === 'all') {
-    filteredValues.value = allValues
+    filteredValues.value = allValues;
   } else {
-    filteredValues.value = wholeList[filterBy].flat()
+    filteredValues.value = wholeList[filterBy].flat();
   }
 }
 
 function selectSubject(e: MouseEvent) {
-  const key = convertToKey((e.currentTarget as HTMLButtonElement)?.value)
-  filterList(key, formulas)
-  activeButton.value = key
+  const key = convertToKey((e.currentTarget as HTMLButtonElement)?.value);
+  filterList(key, formulas);
+  activeButton.value = key;
 }
 
 const listOfSubjects = ref([
@@ -30,7 +30,7 @@ const listOfSubjects = ref([
   'Counting & probability',
   'Laws of exponents',
   'Properties of logarithms'
-])
+]);
 </script>
 
 <template>
