@@ -88,8 +88,6 @@ function getMediaPreference(): UserTheme {
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
-
 header {
   display: flex;
   justify-content: space-between;
