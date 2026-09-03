@@ -89,6 +89,7 @@ const listOfSubjects = ref([
 @media (orientation: portrait) {
   .subjects {
     flex-direction: column;
+    align-items: center;
   }
   .formulas-container {
     grid-template-columns: 1fr;
