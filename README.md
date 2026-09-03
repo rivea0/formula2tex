@@ -6,7 +6,12 @@ A Vue application to copy TeX source of basic discrete math formulas to clipboar
 ### Example Usage
 
 
-https://github.com/rivea0/discrete-math-ref/assets/58330360/8977f6e2-c4b6-44eb-b1a5-97eb61c782bc
+
+
+https://github.com/user-attachments/assets/17874ab8-eed9-41b4-9b35-eaba9599306d
+
+
+
 
 
 ### To run locally:
